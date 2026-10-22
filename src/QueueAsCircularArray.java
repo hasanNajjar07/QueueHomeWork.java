@@ -13,7 +13,7 @@ public class QueueAsCircularArray<T> {
       this.capacity=capacity;
       this.front=-1;
       this.rear=-1;
-      size=0;
+      this.size=0;
       this.arr=(T[]) new Object[capacity];
     }
 
