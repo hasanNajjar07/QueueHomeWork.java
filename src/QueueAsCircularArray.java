@@ -1,0 +1,76 @@
+import java.util.Arrays;
+
+public class QueueAsCircularArray<T> {
+    //Attributes
+    private T[] arr;
+    private int front;
+    private int rear;
+    private int capacity;
+    private int size;
+
+    @SuppressWarnings("Unchecked")
+    QueueAsCircularArray(int capacity){
+      this.capacity=capacity;
+      this.front=-1;
+      this.rear=-1;
+      size=0;
+      this.arr=(T[]) new Object[capacity];
+    }
+
+    public void enqueue(T val) throws IndexOutOfBoundsException {
+        if(size==0){
+            front=0;
+            rear=(rear+1)%capacity;
+            arr[rear]=val;
+            size++;
+        }
+        else if(size<capacity){
+            rear=(rear+1)%capacity;
+            arr[rear]=val;
+            size++;
+        }
+        else if(size==capacity){
+            throw new IndexOutOfBoundsException("The Queue is full!");
+        }
+    }
+
+    public T dequeue() throws IllegalAccessError{
+        if(size==0){
+            throw new IllegalAccessError("The Queue is empty!");
+        }
+        T valTest=arr[front];
+        if(front==rear){
+            front=rear=-1;
+            size--;
+        }
+        else {
+            front = (front + 1) % capacity;
+            size--;
+        }
+        return valTest;
+    }
+
+    public void getHead(){
+        System.out.println( arr[front]);
+    }
+
+
+    public boolean isEmpty(){
+        return size==0;
+    }
+
+    public boolean isFull(){
+        return size==capacity;
+    }
+
+    public String toString(){
+        String s="[";
+        for (int i = 0; i<size; i++) {
+            s += arr[i];
+            if ((i+1) != size) {
+                s += ", ";
+            }
+        }
+        return s+"]";
+    }
+}
