@@ -25,6 +25,7 @@ public class QueueAsCircularArray<T> {
             size++;
         }
         else if(size<capacity){
+            front=0;
             rear=(rear+1)%capacity;
             arr[rear]=val;
             size++;
