@@ -3,10 +3,7 @@ import java.util.Arrays;
 public class QueueAsCircularArray<T> {
     //Attributes
     private T[] arr;
-    private int front;
-    private int rear;
-    private int capacity;
-    private int size;
+    private int front , rear , capacity , size;
 
     @SuppressWarnings("Unchecked")
     QueueAsCircularArray(int capacity){
