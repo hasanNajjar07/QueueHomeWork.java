@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class QueueAsCircularArray<T> {
     //Attributes
@@ -26,9 +27,9 @@ public class QueueAsCircularArray<T> {
             size++;
     }
 
-    public T dequeue() throws IllegalAccessError{
+    public T dequeue() throws NoSuchElementException {
         if(size==0){
-            throw new IllegalAccessError("The Queue is empty!");
+            throw new NoSuchElementException("The Queue is empty!");
         }
         T valTest=arr[front];
         if(front==rear){
