@@ -11,7 +11,7 @@ public class QueueAsCircularArray<T> {
     @SuppressWarnings("Unchecked")
     QueueAsCircularArray(int capacity){
       this.capacity=capacity;
-      this.front=-1;
+      this.front=0;
       this.rear=-1;
       size=0;
       this.arr=(T[]) new Object[capacity];
@@ -19,13 +19,11 @@ public class QueueAsCircularArray<T> {
 
     public void enqueue(T val) throws IndexOutOfBoundsException {
         if(size==0){
-            front=0;
             rear=(rear+1)%capacity;
             arr[rear]=val;
             size++;
         }
         else if(size<capacity){
-            front=0;
             rear=(rear+1)%capacity;
             arr[rear]=val;
             size++;
