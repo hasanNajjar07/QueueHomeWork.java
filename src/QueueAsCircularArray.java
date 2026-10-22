@@ -18,8 +18,13 @@ public class QueueAsCircularArray<T> {
     }
 
     public void enqueue(T val) throws IndexOutOfBoundsException {
-        if(size==0 ||size<capacity){
+        if(size==0){
             front=0;
+            rear=(rear+1)%capacity;
+            arr[rear]=val;
+            size++;
+        }
+        else if(size<capacity){
             rear=(rear+1)%capacity;
             arr[rear]=val;
             size++;
